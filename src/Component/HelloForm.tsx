@@ -7,12 +7,11 @@ let connection = new HubConnectionBuilder()
     .withUrl("https://localhost:7212/chatHub")
     .build();
 
-connection.on("send", data => {
-    console.log(data);
+connection.on("ReceiveMessage", (user, message) => {
+    console.log(user, message);
 });
 
 connection.start()
-    .then(() => connection.invoke("send", "Hello"));
 
 
 export const HelloForm: FC = () => {
