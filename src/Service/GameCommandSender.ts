@@ -14,7 +14,7 @@ export class GameCommandSender {
     try {
       return this.socketServer
         .getConnection()
-        .invoke(command.commandName, ...Object.values(command.parameters));
+        .invoke(command.commandName, command.parameters);
     } catch (e) {
       console.error("error", e);
       throw e;
